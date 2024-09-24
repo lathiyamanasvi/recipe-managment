@@ -23,27 +23,33 @@ const RecipeListing = ({ recipes, onRefresh }) => {
   return (
     <>
     <div className='bg'>
-                <form className='border py-4 px-3 mb-4 w-50 rounded-pill m-auto shadow d-flex bg-white align-items-center'>
-                    <div className='fs-3 mx-3'>
-                        <FiSearch />
-                    </div>
-                    <input
-                        type="text"
+  <form className='border py-2 px-3 mb-3 w-50 w-sm-75 w-md-50 w-lg-50 rounded-pill m-auto shadow d-flex bg-white align-items-center'>
+    <div className='fs-3 mx-2'>
+      <FiSearch />
+    </div>
+    <input
+      type="text"
+      placeholder="Search by title or ingredient..."
+      className="border-0 w-100 fs-5"
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+  </form>
 
-                        placeholder="Search by title or ingredient..."
-                        className="border-0 w-100 fs-4"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    ></input>
-                </form>
-               <Link to={'/add'}>
-               <button className='m-auto'>
-                    <p>Add</p>
-                    <TiArrowRight className='svg fs-3' />
-                </button>
-               </Link>
-                
-            </div>
+  <Link to={'/add'} className='text-decoration-none'>
+    <button className='mx-auto mt-3 addbtn'>
+      <p className="mb-0">Add</p>
+      <TiArrowRight className='svg fs-4' />
+    </button>
+  </Link>
+</div>
+
+    <div className='banner'>
+        
+      <div className='col-12 col-md-6 col-lg-9 py-5 m-auto text-center'>
+          <p className='text-muted text-uppercase fs-5'>Personalize Your Experience</p>
+          <h2 style={{fontSize:"50px"}}>What are your favorite food?</h2>
+      </div>      
     <div className="container mt-4">
     <div className="wrapper">
         <div className="box-area">
@@ -65,6 +71,7 @@ const RecipeListing = ({ recipes, onRefresh }) => {
           ))}
         </div>
       </div>
+    </div>
     </div>
     </>
   );
